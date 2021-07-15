@@ -1,5 +1,5 @@
 import React from 'react'
-import { FlatList, View, Text } from 'react-native';
+import { FlatList, View, Text, StyleSheet } from 'react-native';
 
 const availableZipItems = [
     { place: 'Hatyai', code: '90110' },
@@ -10,9 +10,9 @@ const availableZipItems = [
    ]
 
 const ZipItem = ({place, code}) => (
-    <View>
-        <Text>{place}</Text>
-        <Text>{code}</Text>
+    <View style = {styles.ZipItem}>
+        <Text style={styles.zipPlace} >{place}</Text>
+        <Text style={styles.zipPlace} >{code}</Text>
     </View>
     )
 const _keyExtractor = item => item.code
@@ -27,4 +27,18 @@ export default function ZipCodeScreen(){
     );
    
    }
-   
+ const styles = StyleSheet.create ({
+     ZipItem: {
+         flex: 1,
+         flexDirection: 'row',
+         justifyContent: 'space-between',
+         height: 50,
+         
+         
+     },
+     zipPlace: {
+        fontSize: 20,
+         
+     },
+     
+ })
