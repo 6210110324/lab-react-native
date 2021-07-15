@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import ForecastS from './Forcast'
+import Forecast from './Forcast'
+import { Text, ImageBackground, StyleSheet } from 'react-native'
 
 
 export default function Weather(props) {
@@ -9,7 +10,23 @@ export default function Weather(props) {
         temp: 0
         }) 
     return (
-        <Forecast {...forecastInfo} />
-    )
-   }
+        
+             <ImageBackground source={require('../bg.jpg')} style={styles.backdrop}>
+                <Text>Zip Code</Text>
+                <Text>{props.zipCode}</Text>
+                <Forecast {...forecastInfo} />
+            </ImageBackground>
+        
+ )
+}
+
+const styles = StyleSheet.create({
+    backdrop: {
+    alignItems: 'center',
+    width: '100%',
+    height: '100%'
+    },
+   });
+   
+
    
